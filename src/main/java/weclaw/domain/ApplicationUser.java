@@ -1,4 +1,4 @@
-package weclaw;
+package weclaw.domain;
 
 import java.util.List;
 
@@ -7,11 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "Users")
-public class User {
+public class ApplicationUser {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
@@ -20,8 +18,8 @@ public class User {
 
 	private String email;
 	
-	@OneToMany(mappedBy = "user")
-	private List<Character> characters;
+	@OneToMany(mappedBy = "applicationUser")
+	private List<GameCharacter> gameCharacters;
 
 	public Long getId() {
 		return id;
@@ -47,12 +45,12 @@ public class User {
 		this.email = email;
 	}
 
-	public List<Character> getCharacters() {
-		return characters;
+	public List<GameCharacter> getGameCharacters() {
+		return gameCharacters;
 	}
 
-	public void setCharacters(List<Character> characters) {
-		this.characters = characters;
+	public void setGameCharacters(List<GameCharacter> gameCharacters) {
+		this.gameCharacters = gameCharacters;
 	}
 
 

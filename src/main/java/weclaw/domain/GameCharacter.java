@@ -1,4 +1,4 @@
-package weclaw;
+package weclaw.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,11 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "Characters")
-public class Character {
+public class GameCharacter {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
@@ -22,8 +20,8 @@ public class Character {
     private String characterClass;
 
     @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
-    private User user;
+    @JoinColumn(name = "applicationUserId", nullable = false)
+    private ApplicationUser applicationUser;
 
 	public Long getId() {
 		return id;
@@ -69,12 +67,12 @@ public class Character {
 		this.characterClass = characterClass;
 	}
 
-	public User getUser() {
-		return user;
+	public ApplicationUser getUser() {
+		return applicationUser;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(ApplicationUser applicationUser) {
+		this.applicationUser = applicationUser;
 	}
 
 }

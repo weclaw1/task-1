@@ -1,4 +1,4 @@
-package weclaw;
+package weclaw.scheduled_tasks;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
