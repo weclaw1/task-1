@@ -1,6 +1,7 @@
 package weclaw.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ public class GameCharacter {
 
     private String characterClass;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "applicationUserId", nullable = false)
     private ApplicationUser applicationUser;
 
